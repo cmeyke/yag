@@ -39,7 +39,8 @@ EXPRESSIONS = [
     "You feel yourself starting to appear",
     "You appear",
     "Your skin stops tingling",
-    "(tells you)(?!((, 'That'll be)|(.*Master)))",
+    "Your.*spell has worn off",
+    "(tells you)(?!((, 'That'll be)|(, 'I'll give you)|(.*Master)))",
 ]
 
 
