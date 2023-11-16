@@ -4,6 +4,8 @@ import re
 import pyttsx3  # type: ignore
 from typing import Iterator
 
+from expressions import EXPRESSIONS, SPLITTER
+
 
 def main(log_file: str):
     engine = pyttsx3.init()
@@ -32,19 +34,6 @@ def follow(file, sleep_sec=0.1) -> Iterator[str]:
                 line = ""
         elif sleep_sec:
             time.sleep(sleep_sec)
-
-
-EXPRESSIONS = [
-    "Your target resisted",
-    "Your spell is interrupted",
-    "You feel yourself starting to appear",
-    "You appear",
-    "Your skin stops tingling",
-    "Your.*spell has worn off",
-    "(tells you)(?!((, 'That'll be)|(, 'I'll give you)|(.*Master)|(, 'Welcome to my bank)|(, 'Come back soon)))",
-]
-
-SPLITTER = "] "
 
 
 def process_new_line(line: str) -> str | None:
