@@ -35,7 +35,7 @@ def follow(file, sleep_sec=0.1) -> Iterator[str]:
 
 
 EXPRESSIONS = [
-    "tells you",
+    "(tells you)(?!((, 'That'll be)|(.*Master)))",
     "You feel yourself starting to appear",
     "You appear",
     "Your skin stops tingling",
@@ -51,7 +51,7 @@ def process_new_line(line: str) -> str | None:
 
 
 def output(line: str, engine):
-    """Output a line of text."""
+    """Output a line of text on the console and via text-to-speech."""
     print(line, end="")
     engine.say(line)
     engine.runAndWait()
