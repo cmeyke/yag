@@ -35,10 +35,11 @@ def follow(file, sleep_sec=0.1) -> Iterator[str]:
 
 
 EXPRESSIONS = [
-    "(tells you)(?!((, 'That'll be)|(.*Master)))",
+    "Your target resisted",
     "You feel yourself starting to appear",
     "You appear",
     "Your skin stops tingling",
+    "(tells you)(?!((, 'That'll be)|(.*Master)))",
 ]
 
 
