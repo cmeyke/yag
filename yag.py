@@ -1,3 +1,4 @@
+import signal
 from sys import argv
 import time
 import re
@@ -14,12 +15,19 @@ def main(log_file: str):
     engine.setProperty("voice", voices[1].id)
     output("Welcome to Yet Another Gina.\n", engine)
 
+    signal.signal(signal.SIGINT, signal_handler)
+
     with open(log_file, "r") as file:
         for line in file:
             pass
         for line in follow(file):
             if _line := process_new_line(line):
                 output(_line, engine)
+
+
+def signal_handler(signal, frame):
+    print("Exiting...")
+    exit(0)
 
 
 def follow(file, sleep_sec=0.1) -> Iterator[str]:
